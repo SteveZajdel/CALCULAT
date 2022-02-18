@@ -5,11 +5,15 @@ $(document).ready(function(){
 	$numb=true;
 	$oper="";
 	$vala="";
-	$("input").click(function(){
+	$num="";
+	$num_array=[];
+	$ope_array=[];
+	$bloq_point=false;
+		$("input").click(function(){
 		$vala=$(this).val();
 		$cls=$(this).attr('class');
 		$("#DIZE").removeClass("erreur").html("");
-		logvar("avant");
+	/*	logvar("avant");
 		if ($vala=="raz")
 		{
 			$memo=0;
@@ -18,16 +22,24 @@ $(document).ready(function(){
 			$numb=true;
 			$oper="";
 			$vala="";
+			$num_array=[];
+			$ope_array=[];
+			$bloq_point=false;
 			$("#calcul").html("");
 			$("#resultat").html("");
 			logvar("apres");
 		}
 		else if ($numb && $cls=="nmb" && $oper != "/" )
-		{
+		{*/
 			$txt+=$vala;
 			$("#calcul").html($txt);
-			$ope=true;
-			$numb=false;
+			$num+=$vala;
+			if ($vala==".")
+			{
+				$("#point").attr('hidden',true);
+			}
+	/*		$ope=true;
+	 		$numb=false;
 			if ($oper!="") 
 			{
 				switch($oper)
@@ -93,8 +105,10 @@ $(document).ready(function(){
 			$("#variables").html("\<hr\>"+etape+"\<hr\>$memo="+$memo+"\<br\>"+"$numb="+$numb+"\<br\>"+"$ope="+$ope+"\<br\>"+"$oper="+$oper+"\<br\>"+"$vala="+$vala+"\<br\>"+"$cls="+$cls);
 		}
 		else
-		{
-			$("#var").html("\<hr\>"+etape+"\<hr\>$memo="+$memo+"\<br\>"+"$numb="+$numb+"\<br\>"+"$ope="+$ope+"\<br\>"+"$oper="+$oper+"\<br\>"+"$vala="+$vala+"\<br\>"+"$cls="+$cls);
-		}
-	}
+		{*/
+		//	$("#var").html("\<hr\>"+etape+"\<hr\>$memo="+$memo+"\<br\>"+"$numb="+$numb+"\<br\>"+"$ope="+$ope+"\<br\>"+"$oper="+$oper+"\<br\>"+"$vala="+$vala+"\<br\>"+"$cls="+$cls);
+		$("#var").html($num);
+		$("#var").html(Number($num));
+	//	}
+	});
 });
